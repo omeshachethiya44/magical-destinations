@@ -1,0 +1,1229 @@
+/* =========================================================
+   MAGICAL DESTINATIONS — Beginner-friendly website stylesheet
+   Change the variables below to update the brand colours.
+   ========================================================= */
+
+/* 1. CSS reset and global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--pearl-white);
+    color: var(--dark-navy);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--sky-blue);
+    outline-offset: 3px;
+}
+
+section {
+    scroll-margin-top: 85px;
+}
+
+.container {
+    width: min(1160px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+/* 2. Brand colours — edit these values to change the theme */
+:root {
+    --mystic-purple: #6A3FB7;
+    --ocean-blue: #003D91;
+    --sky-blue: #5DADE2;
+    --silver: #C0C6D4;
+    --pearl-white: #F8F9FC;
+    --dark-navy: #14264B;
+    --white: #FFFFFF;
+    --muted-text: #65718A;
+    --soft-border: #E2E7F0;
+    --soft-purple: #F0EBFA;
+    --card-shadow: 0 12px 35px rgba(20, 38, 75, 0.08);
+}
+
+/* 3. Typography and reusable elements */
+h1,
+h2,
+h3 {
+    color: var(--dark-navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.7rem, 5vw, 4.65rem);
+    letter-spacing: -1.6px;
+}
+
+h2 {
+    font-size: clamp(2rem, 3.5vw, 3.15rem);
+    letter-spacing: -0.7px;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    color: var(--muted-text);
+}
+
+.eyebrow {
+    color: var(--mystic-purple);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.eyebrow-line {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    margin: 0 8px 3px 0;
+    background: var(--mystic-purple);
+}
+
+h1 span,
+h2 span {
+    color: var(--mystic-purple);
+}
+
+.section {
+    padding: 94px 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 42px;
+}
+
+.section-heading > p {
+    max-width: 360px;
+    font-size: 0.95rem;
+}
+
+.centered-heading {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.centered-heading > p {
+    max-width: 540px;
+    margin-top: -22px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 13px 23px;
+    border: 1px solid var(--mystic-purple);
+    border-radius: 6px;
+    background: var(--mystic-purple);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: var(--ocean-blue);
+    border-color: var(--ocean-blue);
+    transform: translateY(-2px);
+}
+
+.button-small {
+    min-height: 42px;
+    padding: 9px 16px;
+    white-space: nowrap;
+}
+
+.button-outline {
+    background: transparent;
+    border-color: var(--silver);
+    color: var(--dark-navy);
+}
+
+.button-outline:hover {
+    color: var(--white);
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--mystic-purple);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.text-link:hover {
+    color: var(--ocean-blue);
+}
+
+/* 4. Navigation bar */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(248, 249, 252, 0.97);
+    border-bottom: 1px solid var(--soft-border);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 88px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--silver);
+    border-radius: 50%;
+    color: var(--mystic-purple);
+    font-size: 1.45rem;
+}
+
+.brand-words {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    letter-spacing: 1.2px;
+}
+
+.brand-words strong {
+    color: var(--dark-navy);
+    font-size: 0.96rem;
+}
+
+.brand-words > span {
+    color: var(--mystic-purple);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.1px;
+}
+
+/* If using a logo image, give it class="brand-logo" and keep it small. */
+.brand-logo {
+    width: 165px;
+    max-height: 54px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2vw, 27px);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--dark-navy);
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--mystic-purple);
+}
+
+/* 5. Hero section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 66px 0 24px;
+    background: var(--pearl-white);
+}
+
+/* Future hero photo: uncomment the background-image line and add the file.
+   Keep the gradient as a fallback if the image is missing.
+   background-image: linear-gradient(90deg, rgba(20,38,75,.92), rgba(20,38,75,.25)), url("images/hero-destination.jpg"); */
+.hero-backdrop {
+    position: absolute;
+    inset: 0 0 0 42%;
+    background: linear-gradient(135deg, #E7E9F8 0%, #D9EAF7 52%, #F1EAFB 100%);
+    border-bottom-left-radius: 150px;
+}
+
+.hero-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    align-items: center;
+    gap: 62px;
+    min-height: 510px;
+}
+
+.hero-content {
+    padding: 20px 0 35px;
+}
+
+.hero h1 {
+    max-width: 640px;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    max-width: 540px;
+    margin-bottom: 30px;
+    font-size: 1.03rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.hero-tagline {
+    margin-top: 30px;
+    color: var(--dark-navy);
+    font-weight: 700;
+}
+
+.hero-slogan {
+    font-size: 0.87rem;
+    font-style: italic;
+}
+
+.hero-visual {
+    position: relative;
+    padding: 12px 0 25px 12px;
+}
+
+.image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #E8E7F7, #D8EAF5 55%, #F2EAFB);
+    color: var(--dark-navy);
+    text-align: center;
+}
+
+.placeholder-symbol {
+    color: var(--mystic-purple);
+    font-size: 2.7rem;
+    line-height: 1;
+}
+
+.image-placeholder small,
+.image-placeholder > span:last-child {
+    color: #52627F;
+    font-size: 0.75rem;
+}
+
+.hero-photo {
+    min-height: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 180px 180px 12px 12px;
+    box-shadow: var(--card-shadow);
+
+    /* Your actual hero photograph */
+    background-image: url("images/hero-destination.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* If you prefer an HTML image instead, replace the placeholder div with:
+   <img class="hero-photo" src="images/hero-destination.jpg" alt="Scenic travel destination"> */
+.hero-stamp {
+    position: absolute;
+    right: -18px;
+    bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    border: 1px solid var(--soft-border);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--card-shadow);
+}
+
+.hero-stamp > span {
+    color: var(--mystic-purple);
+    font-size: 2rem;
+}
+
+.hero-stamp strong,
+.hero-stamp small {
+    display: block;
+}
+
+.hero-stamp strong {
+    color: var(--dark-navy);
+    font-size: 0.88rem;
+}
+
+.hero-stamp small {
+    color: var(--muted-text);
+    font-size: 0.75rem;
+}
+
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 25px;
+    color: var(--muted-text);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.hero-bottom-line {
+    width: 52px;
+    height: 1px;
+    background: var(--silver);
+}
+
+img.hero-photo {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+/* 6. Brand story */
+.story-section {
+    background: var(--white);
+}
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.story-heading h2 {
+    max-width: 430px;
+}
+
+.story-tagline {
+    margin-top: 14px;
+    color: var(--ocean-blue);
+    font-weight: 700;
+}
+
+.decorative-rule {
+    width: 62px;
+    height: 3px;
+    margin-top: 28px;
+    background: var(--mystic-purple);
+}
+
+.story-copy p {
+    margin-bottom: 17px;
+    font-size: 0.98rem;
+}
+
+.story-copy .text-link {
+    margin-top: 8px;
+}
+
+/* 7. Featured destinations */
+.destinations-section {
+    background: var(--pearl-white);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.destination-card {
+    overflow: hidden;
+    border: 1px solid var(--soft-border);
+    border-radius: 9px;
+    background: var(--white);
+    box-shadow: 0 6px 20px rgba(20, 38, 75, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+}
+
+.destination-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.japan-placeholder {
+    background: linear-gradient(145deg, #F5E5E9, #E5DDF4 55%, #DCEAF6);
+}
+
+.thailand-placeholder {
+    background: linear-gradient(145deg, #DCECF6, #F7E9D6 55%, #E4E0F5);
+}
+
+.sri-lanka-placeholder {
+    background: linear-gradient(145deg, #E0EEDB, #F4E9D4 55%, #D9E9F4);
+}
+
+.world-placeholder {
+    background: linear-gradient(145deg, #DDE7F8, #E9E1F6 55%, #D8EEE9);
+}
+
+.image-number {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--ocean-blue);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.destination-info {
+    padding: 22px 20px 24px;
+}
+
+.card-label {
+    margin-bottom: 7px;
+    color: var(--mystic-purple);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.destination-info h3 {
+    margin-bottom: 10px;
+}
+
+.destination-info > p:not(.card-label) {
+    min-height: 82px;
+    margin-bottom: 17px;
+    font-size: 0.86rem;
+}
+
+/* 8. Services */
+.services-section {
+    background: var(--white);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    min-height: 205px;
+    padding: 27px 25px;
+    border: 1px solid var(--soft-border);
+    border-radius: 8px;
+    background: var(--white);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.service-card:hover {
+    border-color: var(--silver);
+    transform: translateY(-3px);
+}
+
+.service-icon {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    margin-bottom: 19px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--soft-purple);
+    color: var(--mystic-purple);
+    font-size: 1.35rem;
+}
+
+.service-card h3 {
+    margin-bottom: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.02rem;
+}
+
+.service-card p {
+    font-size: 0.87rem;
+}
+
+/* 9. Why choose us */
+.benefits-section {
+    background: #F0F4FA;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.benefit-icon {
+    display: grid;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid #D8CBEF;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--mystic-purple);
+    font-size: 1.2rem;
+}
+
+.benefit-item h3 {
+    margin: 3px 0 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+.benefit-item p {
+    font-size: 0.85rem;
+}
+
+/* 10. Vision, mission and values */
+.purpose-section {
+    background: var(--white);
+}
+
+.purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.purpose-card {
+    padding: 30px;
+    border-top: 3px solid var(--mystic-purple);
+    background: var(--pearl-white);
+}
+
+.purpose-number {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--sky-blue);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.purpose-card h3 {
+    margin-bottom: 13px;
+}
+
+.purpose-card p {
+    font-size: 0.92rem;
+}
+
+.values-list {
+    color: var(--dark-navy);
+    line-height: 2;
+}
+
+.values-list span {
+    color: var(--mystic-purple);
+}
+
+/* 11. Promotional banner */
+.promotion-section {
+    overflow: hidden;
+    background: var(--dark-navy);
+    color: var(--white);
+}
+
+/* Optional future promotion photo: add images/promotion.jpg and use it in this section's
+   background-image, keeping a dark overlay so the text remains readable. */
+.promotion-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 350px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.promotion-content .eyebrow {
+    color: #BCA5EB;
+}
+
+.promotion-content h2 {
+    margin-bottom: 17px;
+    color: var(--white);
+}
+
+.promotion-content h2 span {
+    color: #BCA5EB;
+}
+
+.promotion-content p:not(.eyebrow) {
+    max-width: 530px;
+    margin-bottom: 25px;
+    color: #D8DFEE;
+}
+
+.button-light {
+    border-color: var(--white);
+    background: var(--white);
+    color: var(--dark-navy);
+}
+
+.button-light:hover {
+    border-color: var(--sky-blue);
+    background: var(--sky-blue);
+    color: var(--dark-navy);
+}
+
+.promotion-art {
+    position: relative;
+    display: grid;
+    flex: 0 0 300px;
+    min-height: 230px;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.18);
+}
+
+.plane-symbol {
+    z-index: 1;
+    font-size: 6rem;
+    transform: rotate(-12deg);
+}
+
+.orbit {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.orbit-two {
+    width: 210px;
+    height: 145px;
+    transform: rotate(35deg);
+}
+
+.promotion-art small {
+    position: absolute;
+    bottom: 0;
+    color: #C0C6D4;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+/* 12. Contact section */
+.contact-section {
+    background: var(--pearl-white);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 80px;
+}
+
+.contact-copy h2 {
+    margin-bottom: 20px;
+}
+
+.contact-intro {
+    max-width: 450px;
+    margin-bottom: 32px;
+}
+
+.contact-details {
+    display: grid;
+    gap: 22px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.detail-icon {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 7px;
+    background: var(--soft-purple);
+    color: var(--mystic-purple);
+    font-size: 1.1rem;
+}
+
+.contact-detail strong {
+    color: var(--dark-navy);
+    font-size: 0.9rem;
+}
+
+.contact-detail p {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-top: 32px;
+    font-size: 0.8rem;
+}
+
+.social-links > span {
+    width: 100%;
+    color: var(--dark-navy);
+    font-weight: 700;
+}
+
+.social-links a,
+.footer-social a {
+    color: var(--sky-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.social-links a:hover,
+.footer-social a:hover {
+    color: var(--mystic-purple);
+}
+
+.contact-form-wrap {
+    padding: 32px;
+    border: 1px solid var(--soft-border);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-form h3 {
+    margin-bottom: 7px;
+}
+
+.form-note {
+    margin-bottom: 23px;
+    font-size: 0.86rem;
+}
+
+.form-field {
+    margin-bottom: 17px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--dark-navy);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid var(--silver);
+    border-radius: 5px;
+    background: var(--white);
+    color: var(--dark-navy);
+    font-size: 0.9rem;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #8A94A8;
+}
+
+.form-field textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-button {
+    width: 100%;
+    cursor: default;
+}
+
+.form-status {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* 13. Footer */
+.site-footer {
+    padding-top: 58px;
+    background: var(--dark-navy);
+    color: var(--white);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 45px;
+}
+
+.brand-footer .brand-words strong {
+    color: var(--white);
+}
+
+.footer-brand > p {
+    margin-top: 17px;
+    color: #E3E8F2;
+    font-size: 0.9rem;
+}
+
+.footer-brand .footer-slogan {
+    margin-top: 5px;
+    color: #BFCBE0;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.footer-column {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h2 {
+    margin-bottom: 8px;
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.98rem;
+}
+
+.footer-column a,
+.footer-column p {
+    color: #D1D9E8;
+    font-size: 0.82rem;
+    overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+    color: var(--sky-blue);
+}
+
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.footer-social a {
+    font-size: 0.78rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-bottom p {
+    color: #BFCBE0;
+    font-size: 0.76rem;
+}
+
+/* 14. Responsive layouts for tablets and smaller screens */
+@media (max-width: 1000px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 8px;
+    }
+
+    .hero-layout {
+        gap: 35px;
+    }
+
+    .destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 30px;
+    }
+
+    .contact-layout {
+        gap: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: min(100% - 36px, 540px);
+    }
+
+    .section {
+        padding: 68px 0;
+    }
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .brand-mark {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-words strong {
+        font-size: 0.85rem;
+    }
+
+    .brand-words > span {
+        font-size: 0.64rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.78rem;
+    }
+
+    .nav-button {
+        min-height: 39px;
+        padding: 8px 11px;
+        font-size: 0.76rem;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero-backdrop {
+        inset: 42% 0 0 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 12px 0 0;
+    }
+
+    h1 {
+        font-size: clamp(2.55rem, 11vw, 3.7rem);
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .hero-visual {
+        padding: 5px 8px 24px 0;
+    }
+
+    .hero-photo {
+        min-height: 290px;
+        border-radius: 120px 120px 10px 10px;
+    }
+
+    .hero-stamp {
+        right: -3px;
+        bottom: 0;
+        padding: 11px 14px;
+    }
+
+    .hero-bottom {
+        flex-wrap: wrap;
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+
+    .centered-heading {
+        align-items: center;
+        text-align: center;
+    }
+
+    .centered-heading > p {
+        margin-top: 0;
+    }
+
+    .story-layout,
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .destination-grid,
+    .service-grid,
+    .purpose-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-info > p:not(.card-label) {
+        min-height: 0;
+    }
+
+    .destination-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .service-card {
+        min-height: 0;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .promotion-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 52px;
+        padding-bottom: 45px;
+    }
+
+    .promotion-art {
+        align-self: center;
+        flex-basis: auto;
+        width: 100%;
+        min-height: 180px;
+    }
+
+    .contact-form-wrap {
+        padding: 23px 18px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* Respect visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
